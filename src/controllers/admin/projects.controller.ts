@@ -7,7 +7,7 @@ import { InjectModel } from "@nestjs/mongoose";
 import { Model, Types } from "mongoose";
 import * as sharp from "sharp";
 import { randomUUID } from "crypto";
-import { ProjectDocument } from "src/models/Projects.schema";
+import { ProjectDocument } from "src/models/projects.schema";
 import { CreateNewProjectDto, EditProjectDto } from "src/dto/projects.dto";
 import { unlink } from "fs/promises";
 import { TagsService } from "src/services/tags.service";
