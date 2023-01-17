@@ -39,8 +39,11 @@ export class AuthController {
     @Post("refresh")
     async refresh(@Req() req: Request, @Res() res: Response): Promise<void | Response> {
         // update the session and generate new token
+        console.log({ step: 1 });
         const sessionId = await this.authService.updateSession(req);
+        console.log({ step: 2, sessionId });
         const token = await this.authService.generateToken(req, sessionId);
+        console.log({ step: 3, token });
         if (!token) throw new ForbiddenException();
 
         return res.json({ token });
