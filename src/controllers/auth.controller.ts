@@ -26,6 +26,8 @@ export class AuthController {
         const profile = req.body.profile;
         const email = req.body.email;
 
+        console.log({ email, myEmail: process.env.MY_EMAIL, check: email !== process.env.MY_EMAIL });
+
         if (email !== process.env.MY_EMAIL) throw new ForbiddenException();
 
         // generate token and session
