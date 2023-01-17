@@ -21,8 +21,6 @@ export class AuthCheckMiddleware implements NestMiddleware {
 
         if (!token || token === null || token === "") throw new UnauthorizedException(-1);
 
-        console.log({ route: "from the middleware", token });
-
         const publicKey = await readFile(`./storage/private/public_key.pem`, { encoding: "utf8" }).catch((e) => "");
         const payload = verify(token, publicKey, { algorithms: ["RS512"] });
 
