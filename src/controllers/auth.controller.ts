@@ -28,7 +28,7 @@ export class AuthController {
 
         console.log({ email, myEmail: process.env.MY_EMAIL, check: email !== process.env.MY_EMAIL });
 
-        if (email !== process.env.MY_EMAIL) throw new ForbiddenException();
+        if (email !== process.env.MY_EMAIL) throw new ForbiddenException({ email, myEmail: process.env.MY_EMAIL, check: email !== process.env.MY_EMAIL });
 
         // generate token and session
         const session = await this.authService.createSession(req);
